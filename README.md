@@ -6,8 +6,8 @@ Multi-person pose estimation is a fundamental and challenging problem to many co
 be broadly categorized into two classes: top-down and bottom-up methods. Both of the two types of methods involve two stages, namely, person
 detection and joints detection. Conventionally, the two stages are implemented separately without considering their interactions between them,
 and this may inevitably cause some issue intrinsically. 
-In this paper, we present a novel method to simplify the pipeline by implementing person detection and joints detection simultaneously. We propose a Double
-Embedding (DE) method to complete the multi-person pose estimation
+
+In this paper, we present a novel method to simplify the pipeline by implementing person detection and joints detection simultaneously. We propose a Double Embedding (DE) method to complete the multi-person pose estimation
 task in a global-to-local way. DE consists of Global Embedding (GE)
 and Local Embedding (LE). GE encodes different person instances and
 processes information covering the whole image and LE encodes the local limbs information. GE functions for the person detection in top-down
