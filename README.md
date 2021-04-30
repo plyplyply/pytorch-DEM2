@@ -14,7 +14,7 @@ processes information covering the whole image and LE encodes the local limbs in
 strategy while LE connects the rest joints sequentially which functions
 for joint grouping and information processing in A bottom-up strategy.
 Based on LE, we design the Mutual Refine Machine (MRM) to reduce
-the prediction difficulty in complex scenarios. MRM can effectively realize the information communicating between keypoints and further improve the accuracy. We achieve the competitive results on benchmarks
+the prediction difficulty in complex scenarios. MRM can effectively realize the information communicating between keypoints and further improve the accuracy. We achieve the competitive results on benchmarks
 MSCOCO, MPII and CrowdPose, demonstrating the effectiveness and
 generalization ability of our method.
 
