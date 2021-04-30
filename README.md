@@ -65,3 +65,52 @@ Our code is mainly based on [HigherHRNet](https://github.com/HRNet/HigherHRNet-H
    └── requirements.txt
    ```
 
+#### Mixed-precision training
+Due to large input size for bottom-up methods, we use mixed-precision training to train our network by using the following command:
+```
+python tools/dist_train.py \
+    --cfg experiments/coco/higher_hrnet/w32_512_adam_lr1e-3.yaml \
+    FP16.ENABLED True FP16.DYNAMIC_LOSS_SCALE True
+```
+
+#### Synchronized BatchNorm training
+If you have limited GPU memory, please try to reduce batch size and use SyncBN to train the network by using the following command:
+```
+python tools/dist_train.py \
+    --cfg experiments/coco/higher_hrnet/w32_512_adam_lr1e-3.yaml \
+    FP16.ENABLED True FP16.DYNAMIC_LOSS_SCALE True \
+    MODEL.SYNC_BN True
+```
+
+Our code for mixed-precision training is also borrowed from [NVIDIA Apex API](https://github.com/NVIDIA/apex).
+
+## Citation
+If you find this work or code is helpful in your research, please cite:
+````
+@inproceedings{Xu2020bottom,
+  title={A Global to Local Double Embedding Method for Multi-person Pose Estimation},
+  author={Yiming Xu and Jiaxin Li and Yiheng Peng and Yan Ding and HuaLiang Wei},
+  year={2020}
+}
+
+@inproceedings{cheng2020bottom,
+  title={HigherHRNet: Scale-Aware Representation Learning for Bottom-Up Human Pose Estimation},
+  author={Bowen Cheng and Bin Xiao and Jingdong Wang and Honghui Shi and Thomas S. Huang and Lei Zhang},
+  booktitle={CVPR},
+  year={2020}
+}
+
+@inproceedings{SunXLW19,
+  title={Deep High-Resolution Representation Learning for Human Pose Estimation},
+  author={Ke Sun and Bin Xiao and Dong Liu and Jingdong Wang},
+  booktitle={CVPR},
+  year={2019}
+}
+
+@article{wang2019deep,
+  title={Deep High-Resolution Representation Learning for Visual Recognition},
+  author={Wang, Jingdong and Sun, Ke and Cheng, Tianheng and Jiang, Borui and Deng, Chaorui and Zhao, Yang and Liu, Dong and Mu, Yadong and Tan, Mingkui and Wang, Xinggang and Liu, Wenyu and Xiao, Bin},
+  journal={TPAMI},
+  year={2019}
+}
+````
